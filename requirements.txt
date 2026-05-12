@@ -1,0 +1,8 @@
+mlflow
+matplotlib
+scikit-learn
+tensorflow
+pandas
+fastapi
+pillow
+dvc

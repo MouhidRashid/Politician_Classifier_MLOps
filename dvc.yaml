@@ -1,0 +1,24 @@
+stages:
+  prepare_data:
+    cmd: python scripts/split_dataset.py
+    deps:
+      - dataset/aitzaz_ahsan/
+      - dataset/asif_ali_zardari/
+      - dataset/asif_ghafoor/
+      - dataset/bilawal_bhutto_zardari/
+      - dataset/fawad_chaudhry/
+      - dataset/fazlur_rehman/
+      - dataset/hamza_shehbaz/
+      - dataset/hina_rabbani_khar/
+      - dataset/imran_khan/
+      - dataset/khawaja_asif/
+      - dataset/marzam_nawaz/
+      - dataset/nawaz_sharif/
+      - dataset/pervez_elahi/
+      - dataset/shah_muhammad_qureshi/
+      - dataset/shehbaz_sharif/
+      - dataset/siraj_ul_haq/
+    outs:
+      - dataset/train/
+      - dataset/val/
+      - dataset/test/

@@ -1,0 +1,32 @@
+# Sample GitHub Actions workflow for Python + DVC + MLflow
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install dvc
+    - name: DVC pull (if remote configured)
+      run: |
+        dvc pull || echo "No DVC remote configured"
+    - name: Run tests (if any)
+      run: |
+        echo "No tests yet"
+    - name: Run MLflow script (optional)
+      run: |
+        python scripts/log_existing_model_to_mlflow.py || echo "No model or data"
